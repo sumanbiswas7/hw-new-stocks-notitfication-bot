@@ -18,11 +18,11 @@ async function main() {
     // Scrape Available Stocks from Krazycaterpillar
     const count = await getHwCounKrazycaterpillar(browser);
     const kgTitle = "Krazycaterpillar available hw stocks";
-    const newStocks = newStocksCount("data/krazycaterpillar", count);
-    if (newStocks) {
-      console.log(`🔥🔥 Krazycaterpillar new stocks -> ${newStocks}`);
+    const newKzStocks = newStocksCount("data/krazycaterpillar", count);
+    if (newKzStocks) {
+      console.log(`🔥🔥 Krazycaterpillar new stocks -> ${newKzStocks}`);
       sendEmail(
-        `🔥🔥 Krazycaterpillar new stocks -> ${newKdStocks}`,
+        `🔥🔥 Krazycaterpillar new stocks -> ${newKzStocks}`,
         "https://krazycaterpillar.com/pages/search-results-page?collection=hot-wheels-mainline&page=1&rb_stock_status=In%20Stock"
       );
     }
@@ -46,7 +46,7 @@ async function main() {
     }
     log(kdTitle, count2);
     saveJson({
-      count,
+      count: count2,
       folder: "data/karzanddolls",
       title: kdTitle,
     });

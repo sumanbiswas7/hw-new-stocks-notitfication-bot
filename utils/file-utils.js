@@ -54,7 +54,8 @@ function newStocksCount(folder, newCount) {
     data = JSON.parse(fileContent);
   }
 
-  const currCount = data[data.length - 1].count;
+  const currCount = data[data.length - 1]?.count;
+
   if (typeof currCount === "number" && newCount - currCount > 0)
     return newCount - currCount;
   else return null;
